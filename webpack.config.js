@@ -1,23 +1,23 @@
-module.export = {
-    entry: {
-        app: ["./src/index.js"]
-    },
+module.exports = {
+    entry: "./src/index.jsx",
     output: {
         path: "/",
-        fileName: "index.js"
+        filename: "index.js"
     },
     devServer: {
         port: 7000,
-        inline: true
+        inline: true,
+        contentBase: "public/"
     },
     module: {
         loaders: [{
-            test: /\.js$/,
+            test: /\.jsx$/,
             exclude: /node_modules/,
             loader: "babel-loader",
-            query: {
-                presets: ['es2015', 'react', 'stage-0']
-            }
+            
         }]
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx']
     }
 }
